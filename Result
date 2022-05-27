@@ -1,0 +1,49 @@
+4. Results
+Below, we see some results from our work, presented as Predicted, Gold Standard (manually segmented) and the difference between segmentations.
+The next step will be the selection of lungs area on RSNA images dataset and the generation of a lungs-only image dataset.
+
+image = cv2.imread("../input/segmentation/test/CHNCXR_0003_0.png")
+predict_image = cv2.imread("../input/segmentation/test/CHNCXR_0003_0_predict.png")
+mask_image = cv2.imread("../input/segmentation/test/CHNCXR_0003_0_dilate.png")
+
+fig, axs = plt.subplots(4, 3, figsize=(16, 16))
+
+axs[0, 0].set_title("Predicted")
+axs[0, 0].imshow(add_colored_mask(image, predict_image))
+axs[0, 1].set_title("Gold Std.")
+axs[0, 1].imshow(add_colored_mask(image, mask_image))
+axs[0, 2].set_title("Diff.")
+axs[0, 2].imshow(diff_mask(mask_image, predict_image))
+
+image = cv2.imread("../input/segmentation/test/MCUCXR_0003_0.png")
+predict_image = cv2.imread("../input/segmentation/test/MCUCXR_0003_0_predict.png")
+mask_image = cv2.imread("../input/segmentation/test/MCUCXR_0003_0_dilate.png")
+
+axs[1, 0].set_title("Predicted")
+axs[1, 0].imshow(add_colored_mask(image, predict_image))
+axs[1, 1].set_title("Gold Std.")
+axs[1, 1].imshow(add_colored_mask(image, mask_image))
+axs[1, 2].set_title("Diff.")
+axs[1, 2].imshow(diff_mask(mask_image, predict_image))
+
+image = cv2.imread("../input/segmentation/test/CHNCXR_0020_0.png")
+predict_image = cv2.imread("../input/segmentation/test/CHNCXR_0020_0_predict.png")
+mask_image = cv2.imread("../input/segmentation/test/CHNCXR_0020_0_dilate.png")
+
+axs[2, 0].set_title("Predicted")
+axs[2, 0].imshow(add_colored_mask(image, predict_image))
+axs[2, 1].set_title("Gold Std.")
+axs[2, 1].imshow(add_colored_mask(image, mask_image))
+axs[2, 2].set_title("Diff.")
+axs[2, 2].imshow(diff_mask(mask_image, predict_image))
+
+image = cv2.imread("../input/segmentation/test/MCUCXR_0016_0.png")
+predict_image = cv2.imread("../input/segmentation/test/MCUCXR_0016_0_predict.png")
+mask_image = cv2.imread("../input/segmentation/test/MCUCXR_0016_0_dilate.png")
+
+axs[3, 0].set_title("Predicted")
+axs[3, 0].imshow(add_colored_mask(image, predict_image))
+axs[3, 1].set_title("Gold Std.")
+axs[3, 1].imshow(add_colored_mask(image, mask_image))
+axs[3, 2].set_title("Diff.")
+axs[3, 2].imshow(diff_mask(mask_image, predict_image))
